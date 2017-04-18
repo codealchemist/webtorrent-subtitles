@@ -1,0 +1,37 @@
+{
+  "name": "webtorrent-subtitles",
+  "version": "1.0.2",
+  "description": "WebTorrent plugin that automatically downloads subtitles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && mocha --reporter spec",
+    "test-watch": "mocha --watch --reporter spec",
+    "lint-focus": "standard-focus"
+  },
+  "keywords": [
+    "webtorrent",
+    "subtitles"
+  ],
+  "author": {
+    "name": "Alberto Miranda",
+    "email": "b3rt.js@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "color": "^1.*",
+    "standard": "^8.5.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "standard-focus": "^1.1.2"
+  },
+  "repository": "codealchemist/webtorrent-subtitles",
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "beforeEach"
+    ]
+  }
+}
