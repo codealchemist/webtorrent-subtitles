@@ -13,8 +13,8 @@ exports.onCheckForSubtitles = () => {
   webTorrentSubtitles.onCheckForSubtitles()
 }
 
-exports.setDispatcher = (dispatcher) => {
-  webTorrentSubtitles.setDispatcher(dispatcher)
+exports.initRenderer = (params) => {
+  webTorrentSubtitles.initRenderer(params)
 }
 
 exports.decorateConfig = (appConfig) => {
