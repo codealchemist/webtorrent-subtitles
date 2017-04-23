@@ -2,7 +2,6 @@
   "name": "webtorrent-subtitles",
   "version": "1.0.2",
   "description": "WebTorrent plugin that automatically downloads subtitles.",
-  "main": "index.js",
   "scripts": {
     "test": "standard && mocha --reporter spec",
     "test-watch": "mocha --watch --reporter spec",

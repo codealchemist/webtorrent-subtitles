@@ -5,9 +5,9 @@ const toElectronBackgroundColor = require('./utils/to-electron-background-color'
 /**
  * WebTorrent plugin to easily set window transparency.
  */
-module.exports = class WebTorrentSubtitles {
+module.exports = class WebTorrentSubtitlesMain {
   constructor () {
-    this.configFile = resolve(__dirname, 'webtorrent-subtitles.json')
+    this.configFile = resolve(__dirname, 'config.json')
     this.win = {}
     this.config = require(this.configFile)
     this.state = {}
@@ -16,22 +16,6 @@ module.exports = class WebTorrentSubtitles {
 
   saveConfig () {
     writeFileSync(this.configFile, JSON.stringify(this.config))
-  }
-
-  initRenderer ({state, dispatch}) {
-    this.state = state
-    this.dispatch = dispatch
-  }
-
-  onCheckForSubtitles () {
-    console.log('--------- webtorrent-subtitles: onCheckForSubtitles', this.state)
-
-    if (this.state.playing.type !== 'video') return
-    const torrentSummary = this.state.getPlayingTorrentSummary()
-    if (!torrentSummary || !torrentSummary.progress) return
-
-    const subtitles = ['PATH-TO-SUBS-FILE-FOR-LOCAL-TESTING.srt']
-    this.dispatch('addSubtitles', subtitles, true)
   }
 
   setTransparency (value = 0.9) {
@@ -57,12 +41,12 @@ module.exports = class WebTorrentSubtitles {
     }
   }
 
-  setWindow (win) {
+  onWindow (win) {
     this.win = win
     this.setTransparency(this.config.opacity)
   }
 
-  setApp (app) {
+  onApp (app) {
     this.app = app
   }
 
